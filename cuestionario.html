@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER ART COMMISSIONS // CUESTIONARIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#0A0012',
+                        'cyber-card': '#120524',
+                        'neon-magenta': '#FF007F',
+                        'electric-cyan': '#00F0FF',
+                        'acid-yellow': '#FFE600',
+                        'neon-green': '#00FF66',
+                        'terminal-dark': '#07020d'
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        vt: ['VT323', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-magenta': '0 0 15px rgba(255, 0, 127, 0.5), 0 0 30px rgba(255, 0, 127, 0.2)',
+                        'glow-cyan': '0 0 15px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.2)',
+                        'glow-yellow': '0 0 15px rgba(255, 230, 0, 0.5)',
+                        'glow-green': '0 0 15px rgba(0, 255, 102, 0.5)'
+                    }
+                }
+            }
+        }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;600;800&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-deep-space text-gray-200 font-sans min-h-screen flex flex-col selection:bg-neon-magenta selection:text-white relative overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 z-50 scanline opacity-30"></div>
+    <div class="pointer-events-none fixed inset-0 z-0 opacity-10 bg-[radial-gradient(#00F0FF_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+    <header class="sticky top-0 z-40 cyber-glass border-b border-electric-cyan/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer" onclick="playSynthClick(587,'triangle')">
+                    <div class="w-10 h-10 rounded-lg border border-electric-cyan bg-deep-space flex items-center justify-center shadow-glow-cyan text-electric-cyan">
+                        <i class="fa-solid fa-terminal text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-mono font-bold text-lg tracking-wider text-white flex items-center gap-2">
+                            CYBER<span class="text-neon-magenta">ART</span>
+                        </span>
+                        <span class="text-xs font-vt text-electric-cyan tracking-widest block -mt-1">v2.0 // COMMISSIONS</span>
+                    </div>
+                </a>
+
+                <nav class="hidden xl:flex items-center gap-1 font-mono text-xs">
+                    <a href="index.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-electric-cyan border-b-2 border-electric-cyan bg-electric-cyan/10"><i class="fa-solid fa-house"></i> 01. INICIO</a>
+                    <a href="javascript.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-brands fa-js text-yellow-400"></i> 02. JS VANILLA</a>
+                    <a href="jquery.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-code"></i> 03. JQUERY</a>
+                    <a href="json.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-database"></i> 04. JSON</a>
+                    <a href="hosting.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-server"></i> 05. HOSTING</a>
+                    <a href="cuestionario.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-acid-yellow border border-acid-yellow/40 hover:bg-acid-yellow/10"><i class="fa-solid fa-graduation-cap"></i> 06. CUESTIONARIO</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="sound-btn" onclick="toggleAudio()" class="px-3 py-1.5 rounded border border-electric-cyan/40 bg-cyber-card text-electric-cyan font-mono text-xs hover:border-electric-cyan flex items-center gap-2 transition" title="Activar/Desactivar Sonidos Retro">
+                        <i class="fa-solid fa-volume-high" id="sound-icon"></i><span class="hidden sm:inline">SFX: ON</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="xl:hidden text-electric-cyan p-2 text-xl focus:outline-none"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden xl:hidden border-t border-electric-cyan/30 bg-deep-space/95 px-4 pt-2 pb-4 space-y-1 font-mono text-sm">
+            <a href="index.html" class="block w-full text-left px-3 py-2 rounded text-electric-cyan bg-electric-cyan/10">01. INICIO / MARCA</a>
+            <a href="javascript.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">02. JAVASCRIPT VANILLA</a>
+            <a href="jquery.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">03. JQUERY</a>
+            <a href="json.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">04. JSON</a>
+            <a href="hosting.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">05. HOSTING Y DOMINIOS</a>
+            <a href="cuestionario.html" class="block w-full text-left px-3 py-2 rounded text-acid-yellow bg-acid-yellow/10">06. CUESTIONARIO WEB</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <section id="tab-quiz" class="tab-content space-y-8">
+            
+            <div class="cyber-glass p-6 sm:p-8 rounded-xl border border-acid-yellow/40 space-y-6">
+                <div class="flex items-center justify-between flex-wrap gap-4 border-b border-gray-800 pb-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-graduation-cap text-acid-yellow text-3xl"></i>
+                        <div>
+                            <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white">CUESTIONARIO WEB DE REPASO</h2>
+                            <p class="text-xs font-mono text-gray-400">Módulo de autoevaluación interactivo sobre JS, jQuery, JSON y Hosting</p>
+                        </div>
+                    </div>
+
+                    <div id="quiz-score-badge" class="px-4 py-2 rounded bg-acid-yellow/10 border border-acid-yellow text-acid-yellow font-mono text-sm font-bold">
+                        PUNTUAClÓN: <span id="quiz-score">0</span> / 8
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-questions-container" class="space-y-6">
+                    <!-- Questions will be rendered dynamically via JavaScript for optimal interactivity -->
+                </div>
+
+                <!-- Final Quiz Results Card -->
+                <div id="quiz-result-card" class="hidden cyber-glass p-6 rounded-xl border border-neon-green text-center space-y-4">
+                    <div class="text-4xl text-neon-green"><i class="fa-solid fa-award"></i></div>
+                    <h3 class="text-2xl font-mono font-bold text-white" id="quiz-grade-title">¡EVALUACIÓN COMPLETADA!</h3>
+                    <p class="text-sm text-gray-300 font-mono" id="quiz-grade-desc">Has demostrado un conocimiento sólido de la infraestructura web.</p>
+                    <button onclick="resetQuiz()" class="px-6 py-2.5 rounded bg-acid-yellow text-black font-mono font-bold text-xs hover:bg-acid-yellow/80 transition">
+                        <i class="fa-solid fa-rotate-right"></i> REINTENTAR CUESTIONARIO
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="cyber-glass border-t border-electric-cyan/20 py-8 relative z-10 text-xs font-mono text-gray-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="text-white font-bold">CYBER ART COMMISSIONS</span> &copy; 2026 // TERMINAL DE ENCARGOS
+                <p class="text-gray-500 text-[10px]">Proyecto Desarrollado con HTML5, Tailwind CSS, JS Vanilla & jQuery</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-deep-space border border-gray-700 hover:border-electric-cyan text-gray-300 flex items-center gap-2 transition">
+                    <i class="fa-brands fa-github text-white"></i> GitHub Repo
+                </a>
+                <a href="https://vercel.com" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-deep-space border border-gray-700 hover:border-electric-cyan text-gray-300 flex items-center gap-2 transition">
+                    <i class="fa-solid fa-triangle-exclamation text-white"></i> Vercel App
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

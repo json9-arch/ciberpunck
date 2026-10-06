@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER ART COMMISSIONS // INICIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-space': '#0A0012',
+                        'cyber-card': '#120524',
+                        'neon-magenta': '#FF007F',
+                        'electric-cyan': '#00F0FF',
+                        'acid-yellow': '#FFE600',
+                        'neon-green': '#00FF66',
+                        'terminal-dark': '#07020d'
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace'],
+                        vt: ['VT323', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-magenta': '0 0 15px rgba(255, 0, 127, 0.5), 0 0 30px rgba(255, 0, 127, 0.2)',
+                        'glow-cyan': '0 0 15px rgba(0, 240, 255, 0.5), 0 0 30px rgba(0, 240, 255, 0.2)',
+                        'glow-yellow': '0 0 15px rgba(255, 230, 0, 0.5)',
+                        'glow-green': '0 0 15px rgba(0, 255, 102, 0.5)'
+                    }
+                }
+            }
+        }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;600;800&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-deep-space text-gray-200 font-sans min-h-screen flex flex-col selection:bg-neon-magenta selection:text-white relative overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 z-50 scanline opacity-30"></div>
+    <div class="pointer-events-none fixed inset-0 z-0 opacity-10 bg-[radial-gradient(#00F0FF_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+    <header class="sticky top-0 z-40 cyber-glass border-b border-electric-cyan/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer" onclick="playSynthClick(587,'triangle')">
+                    <div class="w-10 h-10 rounded-lg border border-electric-cyan bg-deep-space flex items-center justify-center shadow-glow-cyan text-electric-cyan">
+                        <i class="fa-solid fa-terminal text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-mono font-bold text-lg tracking-wider text-white flex items-center gap-2">
+                            CYBER<span class="text-neon-magenta">ART</span>
+                        </span>
+                        <span class="text-xs font-vt text-electric-cyan tracking-widest block -mt-1">v2.0 // COMMISSIONS</span>
+                    </div>
+                </a>
+
+                <nav class="hidden xl:flex items-center gap-1 font-mono text-xs">
+                    <a href="index.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-electric-cyan border-b-2 border-electric-cyan bg-electric-cyan/10"><i class="fa-solid fa-house"></i> 01. INICIO</a>
+                    <a href="javascript.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-brands fa-js text-yellow-400"></i> 02. JS VANILLA</a>
+                    <a href="jquery.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-code"></i> 03. JQUERY</a>
+                    <a href="json.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-database"></i> 04. JSON</a>
+                    <a href="hosting.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-gray-400 hover:text-white hover:bg-white/5"><i class="fa-solid fa-server"></i> 05. HOSTING</a>
+                    <a href="cuestionario.html" class="nav-btn px-3 py-2 rounded-md transition flex items-center gap-1.5 text-acid-yellow border border-acid-yellow/40 hover:bg-acid-yellow/10"><i class="fa-solid fa-graduation-cap"></i> 06. CUESTIONARIO</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="sound-btn" onclick="toggleAudio()" class="px-3 py-1.5 rounded border border-electric-cyan/40 bg-cyber-card text-electric-cyan font-mono text-xs hover:border-electric-cyan flex items-center gap-2 transition" title="Activar/Desactivar Sonidos Retro">
+                        <i class="fa-solid fa-volume-high" id="sound-icon"></i><span class="hidden sm:inline">SFX: ON</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="xl:hidden text-electric-cyan p-2 text-xl focus:outline-none"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden xl:hidden border-t border-electric-cyan/30 bg-deep-space/95 px-4 pt-2 pb-4 space-y-1 font-mono text-sm">
+            <a href="index.html" class="block w-full text-left px-3 py-2 rounded text-electric-cyan bg-electric-cyan/10">01. INICIO / MARCA</a>
+            <a href="javascript.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">02. JAVASCRIPT VANILLA</a>
+            <a href="jquery.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">03. JQUERY</a>
+            <a href="json.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">04. JSON</a>
+            <a href="hosting.html" class="block w-full text-left px-3 py-2 rounded text-gray-300 hover:text-white hover:bg-white/5">05. HOSTING Y DOMINIOS</a>
+            <a href="cuestionario.html" class="block w-full text-left px-3 py-2 rounded text-acid-yellow bg-acid-yellow/10">06. CUESTIONARIO WEB</a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <section id="tab-inicio" class="tab-content space-y-12">
+            
+            <!-- Hero Terminal Banner -->
+            <div class="cyber-glass rounded-2xl p-6 sm:p-10 border border-electric-cyan/40 relative overflow-hidden shadow-glow-cyan/20">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-neon-magenta/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-electric-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Status Tag -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-green/50 bg-neon-green/10 text-neon-green font-mono text-xs font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-neon-green animate-ping"></span>
+                            [ STATUS: COMMISSIONS OPEN // SYSTEM READY ]
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase font-sans">
+                            CYBER ART <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-magenta via-electric-cyan to-acid-yellow text-glow-magenta">
+                                COMMISSIONS
+                            </span>
+                        </h1>
+
+                        <p class="text-gray-300 text-lg leading-relaxed max-w-2xl">
+                            Transformando ideas, avatares y personajes en <strong class="text-electric-cyan">arte digital vibrante</strong> con estética retro-futurista Synthwave/Cyberpunk. Explora nuestros modos gráficos o consulta el centro de documentación web.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="switchTab('modos')" class="px-6 py-3 rounded-lg bg-neon-magenta text-white font-mono font-bold hover:bg-neon-magenta/80 transition shadow-glow-magenta flex items-center gap-2">
+                                <i class="fa-solid fa-bolt"></i> SOLICITAR COMISIÓN
+                            </button>
+                            <button onclick="switchTab('js')" class="px-6 py-3 rounded-lg border border-electric-cyan/60 text-electric-cyan hover:bg-electric-cyan/10 font-mono font-semibold transition flex items-center gap-2">
+                                <i class="fa-solid fa-book"></i> INVESTIGACIÓN TECH
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Custom SVG Animated Brand Logo -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 flex items-center justify-center p-4">
+                            <!-- SVG Cyber Emblem -->
+                            <svg class="w-full h-full drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="90" stroke="#00F0FF" stroke-width="2" stroke-dasharray="8 4" class="animate-spin" style="animation-duration: 20s;"/>
+                                <polygon points="100,20 170,160 30,160" stroke="#FF007F" stroke-width="3" fill="rgba(255,0,127,0.05)"/>
+                                <polygon points="100,180 30,40 170,40" stroke="#00F0FF" stroke-width="2" fill="rgba(0,240,255,0.05)"/>
+                                <circle cx="100" cy="100" r="35" fill="#0A0012" stroke="#FFE600" stroke-width="3"/>
+                                <path d="M85 90 L115 90 L100 115 Z" fill="#FF007F"/>
+                                <text x="100" y="104" font-family="VT323" font-size="22" fill="#00F0FF" text-anchor="middle">CYBER</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identity & Target Audience Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="cyber-glass p-6 rounded-xl border-l-4 border-neon-magenta hover:border-electric-cyan transition">
+                    <div class="text-neon-magenta text-3xl mb-3"><i class="fa-solid fa-fingerprint"></i></div>
+                    <h3 class="font-mono font-bold text-lg text-white mb-2">Propuesta de Valor</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Ilustraciones con iluminación neón de alto impacto, acabados cel-shading de precisión y conceptos cyberpunk que hacen resaltar cualquier perfil, canal o proyecto indie.
+                    </p>
+                </div>
+
+                <div class="cyber-glass p-6 rounded-xl border-l-4 border-electric-cyan hover:border-acid-yellow transition">
+                    <div class="text-electric-cyan text-3xl mb-3"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="font-mono font-bold text-lg text-white mb-2">Público Objetivo</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Diseñado para Streamers (Twitch/YouTube), Content Creators, VTubers, Gamers, Desarrolladores de Videojuegos Indie y fans del anime retro-futurista.
+                    </p>
+                </div>
+
+                <div class="cyber-glass p-6 rounded-xl border-l-4 border-acid-yellow hover:border-neon-magenta transition">
+                    <div class="text-acid-yellow text-3xl mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="font-mono font-bold text-lg text-white mb-2">Garantía de Calidad</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Flujo de trabajo transparente con entrega en ultra alta resolución (4K/300DPI), archivos PNG transparentes y hasta 2 rondas de revisión en etapa de boceto.
+                    </p>
+                </div>
+            </div>
+
+            <!-- System Color Palette & Psychology -->
+            <div class="cyber-glass rounded-xl p-6 sm:p-8 border border-electric-cyan/30">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-swatchbook text-electric-cyan text-2xl"></i>
+                    <div>
+                        <h2 class="text-2xl font-mono font-bold text-white">SYSTEM COLOR PALETTE</h2>
+                        <p class="text-xs font-mono text-gray-400">Justificación gráfica basada en la psicología del color cyberpunk</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Deep Space -->
+                    <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+                        <div class="h-16 rounded bg-[#0A0012] border border-gray-700 flex items-center justify-center font-mono font-bold text-gray-400">
+                            #0A0012
+                        </div>
+                        <div>
+                            <h4 class="font-mono font-bold text-white">Deep Space</h4>
+                            <p class="text-xs text-electric-cyan">Fondo Infinito Dark</p>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Representa el misterio, el cosmos nocturno y proporciona el contraste perfecto sin fatigar la vista para que resalten las luces neón.
+                        </p>
+                    </div>
+
+                    <!-- Neon Magenta -->
+                    <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+                        <div class="h-16 rounded bg-[#FF007F] shadow-glow-magenta flex items-center justify-center font-mono font-bold text-white">
+                            #FF007F
+                        </div>
+                        <div>
+                            <h4 class="font-mono font-bold text-white">Neon Magenta</h4>
+                            <p class="text-xs text-neon-magenta">Energía & Sintetizadores</p>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Aporta pasión, energía juvenil, dinamismo synthwave y la vibra nostálgica de las luces de neón ochenteras.
+                        </p>
+                    </div>
+
+                    <!-- Electric Cyan -->
+                    <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+                        <div class="h-16 rounded bg-[#00F0FF] shadow-glow-cyan flex items-center justify-center font-mono font-bold text-black">
+                            #00F0FF
+                        </div>
+                        <div>
+                            <h4 class="font-mono font-bold text-white">Electric Cyan</h4>
+                            <p class="text-xs text-electric-cyan">Interfaz Cibernética</p>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Simboliza alta tecnología, claridad digital, circuitos futuristas y la precisión en los detalles cibernéticos.
+                        </p>
+                    </div>
+
+                    <!-- Acid Yellow -->
+                    <div class="bg-deep-space p-4 rounded-lg border border-gray-800 space-y-3">
+                        <div class="h-16 rounded bg-[#FFE600] shadow-glow-yellow flex items-center justify-center font-mono font-bold text-black">
+                            #FFE600
+                        </div>
+                        <div>
+                            <h4 class="font-mono font-bold text-white">Acid Yellow</h4>
+                            <p class="text-xs text-acid-yellow">Alertas & Contrastes</p>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Utilizado estratégicamente para generar alertas, focos de atención inmediata y acentos de máxima luminosidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules & TOS + Order Workflow Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- TOS -->
+                <div class="cyber-glass p-6 rounded-xl border border-neon-magenta/30 space-y-4">
+                    <h3 class="text-xl font-mono font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-scroll text-neon-magenta"></i> Reglas & Términos (TOS)
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <span class="text-neon-green font-mono font-bold"><i class="fa-solid fa-check"></i> LO QUE SÍ DIBUJO:</span>
+                            <p class="text-gray-300 ml-5">Personajes Originales (OCs), Fanart, Avatares, Retratos Estilizados, Estética Cyberpunk/Sci-Fi y Mecha ligero.</p>
+                        </div>
+                        <div>
+                            <span class="text-red-400 font-mono font-bold"><i class="fa-solid fa-xmark"></i> LO QUE NO DIBUJO:</span>
+                            <p class="text-gray-300 ml-5">Contenido explícito (NSFW explícito), discursos de odio o temáticas altamente sensibles/ofensivas.</p>
+                        </div>
+                        <div>
+                            <span class="text-electric-cyan font-mono font-bold"><i class="fa-solid fa-credit-card"></i> PAGO Y REVISIONES:</span>
+                            <p class="text-gray-300 ml-5">Pago previo del 50% para iniciar y 50% antes de la entrega final en alta resolución. Incluye 2 revisiones gratis en fase de boceto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Process -->
+                <div class="cyber-glass p-6 rounded-xl border border-electric-cyan/30 space-y-4">
+                    <h3 class="text-xl font-mono font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-electric-cyan"></i> Proceso de Pedido (Paso a Paso)
+                    </h3>
+
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+                            <span class="w-6 h-6 rounded bg-neon-magenta font-mono text-xs font-bold flex items-center justify-center text-white shrink-0">1</span>
+                            <div class="text-xs">
+                                <strong class="text-white block font-mono">Elige tu Modo y Formato:</strong>
+                                Select Rubber Hose, Anime Clásico o Cyber Glow con el nivel de cuerpo deseado.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+                            <span class="w-6 h-6 rounded bg-electric-cyan font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">2</span>
+                            <div class="text-xs">
+                                <strong class="text-white block font-mono">Envía tus Referencias:</strong>
+                                Genera el Ticket en el Cotizador y adjunta imágenes o descripción de tu personaje.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+                            <span class="w-6 h-6 rounded bg-acid-yellow font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">3</span>
+                            <div class="text-xs">
+                                <strong class="text-white block font-mono">Revisa y Aprueba Boceto:</strong>
+                                Se te envía el boceto inicial para ajustar pose, expresiones y elementos.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-2 rounded bg-deep-space/60 border border-gray-800">
+                            <span class="w-6 h-6 rounded bg-neon-green font-mono text-xs font-bold flex items-center justify-center text-black shrink-0">4</span>
+                            <div class="text-xs">
+                                <strong class="text-white block font-mono">Entrega Final HD:</strong>
+                                Recibes tu obra terminada en PNG 4K con y sin fondo para tus redes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-modos" class="tab-content space-y-12">
+            
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-mono font-bold text-white">MODOS DE ILUSTRACIÓN</h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm">
+                    Selecciona el acabado que mejor represente la personalidad de tu proyecto o personaje.
+                </p>
+            </div>
+
+            <!-- 3 Commission Modes Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Mode 01 -->
+                <div class="cyber-glass rounded-xl overflow-hidden border border-electric-cyan/30 hover:border-electric-cyan transition group flex flex-col justify-between">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded bg-electric-cyan/10 border border-electric-cyan text-electric-cyan font-mono text-xs font-bold">MODE 01</span>
+                            <span class="text-xs text-gray-400 font-mono">Desde $25 USD</span>
+                        </div>
+                        <h3 class="text-2xl font-mono font-bold text-white group-hover:text-electric-cyan transition">Rubber Hose</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Estilo caricatura clásica de los años 30 con trazos fluidos, divertidos y un toque retro vintage. Ideal para avatares en redes, stickers y emotes interactivos.
+                        </p>
+                        <ul class="text-xs text-gray-400 space-y-1 font-mono">
+                            <li><i class="fa-solid fa-check text-electric-cyan"></i> Trazos extremadamente dinámicos</li>
+                            <li><i class="fa-solid fa-check text-electric-cyan"></i> Paleta de color simplificada o monocroma</li>
+                            <li><i class="fa-solid fa-check text-electric-cyan"></i> Excelente para stickers</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+                        <button onclick="selectModeInCalc('rubber')" class="w-full py-2 rounded bg-electric-cyan/20 border border-electric-cyan text-electric-cyan font-mono text-xs hover:bg-electric-cyan hover:text-black transition">
+                            SELECCIONAR EN COTIZADOR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mode 02 -->
+                <div class="cyber-glass rounded-xl overflow-hidden border border-neon-magenta/30 hover:border-neon-magenta transition group flex flex-col justify-between">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded bg-neon-magenta/10 border border-neon-magenta text-neon-magenta font-mono text-xs font-bold">MODE 02</span>
+                            <span class="text-xs text-gray-400 font-mono">Desde $40 USD</span>
+                        </div>
+                        <h3 class="text-2xl font-mono font-bold text-white group-hover:text-neon-magenta transition">Anime Clásico (90s)</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Trazos definidos con sombreado limpio tradicional estilo Cel-Shading retro de los años 90. Perfecto para hojas de personaje (Character Sheets) y foto de perfil.
+                        </p>
+                        <ul class="text-xs text-gray-400 space-y-1 font-mono">
+                            <li><i class="fa-solid fa-check text-neon-magenta"></i> Estilo nostálgico retro-anime</li>
+                            <li><i class="fa-solid fa-check text-neon-magenta"></i> Lineart nítido y sombras sólidas</li>
+                            <li><i class="fa-solid fa-check text-neon-magenta"></i> Ideal para Character Sheets</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+                        <button onclick="selectModeInCalc('anime')" class="w-full py-2 rounded bg-neon-magenta/20 border border-neon-magenta text-neon-magenta font-mono text-xs hover:bg-neon-magenta hover:text-white transition">
+                            SELECCIONAR EN COTIZADOR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mode 03 -->
+                <div class="cyber-glass rounded-xl overflow-hidden border border-acid-yellow/30 hover:border-acid-yellow transition group flex flex-col justify-between">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded bg-acid-yellow/10 border border-acid-yellow text-acid-yellow font-mono text-xs font-bold">MODE 03</span>
+                            <span class="text-xs text-gray-400 font-mono">Desde $60 USD</span>
+                        </div>
+                        <h3 class="text-2xl font-mono font-bold text-white group-hover:text-acid-yellow transition">Cyber Glow</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Estilo avanzado con alto contraste, luces neón intensas, efectos de distorsión cromática y filtros futuristas. Ilustraciones premium de alto impacto visual.
+                        </p>
+                        <ul class="text-xs text-gray-400 space-y-1 font-mono">
+                            <li><i class="fa-solid fa-check text-acid-yellow"></i> Efectos de iluminación holográfica</li>
+                            <li><i class="fa-solid fa-check text-acid-yellow"></i> Sombreado complejo y brillo neón</li>
+                            <li><i class="fa-solid fa-check text-acid-yellow"></i> Máximo detalle y resolución</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-deep-space/80 border-t border-gray-800 text-center">
+                        <button onclick="selectModeInCalc('cyber')" class="w-full py-2 rounded bg-acid-yellow/20 border border-acid-yellow text-acid-yellow font-mono text-xs hover:bg-acid-yellow hover:text-black transition">
+                            SELECCIONAR EN COTIZADOR
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Price Calculator & Ticket Generator -->
+            <div id="calculator-section" class="cyber-glass rounded-2xl p-6 sm:p-8 border border-electric-cyan/40 shadow-glow-cyan/10">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-calculator text-electric-cyan text-2xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-mono font-bold text-white">COTIZADOR INTERACTIVO & TICKET</h3>
+                        <p class="text-xs font-mono text-gray-400">Calcula tu presupuesto estimado y genera tu orden de encargo en tiempo real</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Form Options -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- 1. Select Mode -->
+                        <div>
+                            <label class="block font-mono text-xs text-electric-cyan mb-2">1. SELECCIONA EL MODO DE ARTE:</label>
+                            <div class="grid grid-cols-3 gap-2 font-mono text-xs">
+                                <button type="button" onclick="updateCalc('mode', 'rubber')" id="btn-mode-rubber" class="calc-mode-btn p-3 rounded border border-electric-cyan bg-electric-cyan/20 text-white font-bold">Rubber Hose</button>
+                                <button type="button" onclick="updateCalc('mode', 'anime')" id="btn-mode-anime" class="calc-mode-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400">Anime 90s</button>
+                                <button type="button" onclick="updateCalc('mode', 'cyber')" id="btn-mode-cyber" class="calc-mode-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400">Cyber Glow</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Select Coverage / Format -->
+                        <div>
+                            <label class="block font-mono text-xs text-electric-cyan mb-2">2. NIVEL DE COBERURA (FORMATO):</label>
+                            <div class="grid grid-cols-3 gap-2 font-mono text-xs">
+                                <button type="button" onclick="updateCalc('format', 'headshot')" id="btn-format-headshot" class="calc-format-btn p-3 rounded border border-neon-magenta bg-neon-magenta/20 text-white font-bold">Headshot / Avatar</button>
+                                <button type="button" onclick="updateCalc('format', 'half')" id="btn-format-half" class="calc-format-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400">Half Body</button>
+                                <button type="button" onclick="updateCalc('format', 'full')" id="btn-format-full" class="calc-format-btn p-3 rounded border border-gray-700 bg-deep-space text-gray-400">Full Body</button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Extras Checkboxes -->
+                        <div>
+                            <label class="block font-mono text-xs text-electric-cyan mb-2">3. ADICIONALES & EXTRAS:</label>
+                            <div class="space-y-2 font-mono text-xs">
+                                <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+                                    <input type="checkbox" id="extra-bg" onchange="calculateTotal()" class="w-4 h-4 accent-neon-magenta">
+                                    <span class="text-gray-200">Fondo Detallado Synthwave / Neón (+$25 USD)</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+                                    <input type="checkbox" id="extra-char" onchange="calculateTotal()" class="w-4 h-4 accent-neon-magenta">
+                                    <span class="text-gray-200">Personaje Adicional en la escena (+70% del valor base)</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded bg-deep-space border border-gray-800 cursor-pointer hover:border-gray-700">
+                                    <input type="checkbox" id="extra-commercial" onchange="calculateTotal()" class="w-4 h-4 accent-neon-magenta">
+                                    <span class="text-gray-200">Licencia Comercial / Merchandising (+$40 USD)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Client Nickname Input -->
+                        <div>
+                            <label class="block font-mono text-xs text-electric-cyan mb-1">NICKNAME / CONTACTO (OPCIONAL):</label>
+                            <input type="text" id="client-name" oninput="updateTicketText()" placeholder="Ej: CyberRunner#1337" class="w-full bg-deep-space border border-gray-700 rounded p-2.5 text-xs font-mono text-white focus:border-electric-cyan outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Live Ticket Output -->
+                    <div class="lg:col-span-5 flex flex-col justify-between bg-terminal-dark p-5 rounded-xl border border-electric-cyan/40 font-mono text-xs space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center border-b border-dashed border-gray-700 pb-2 mb-3">
+                                <span class="text-electric-cyan font-bold">[ TICKET DE ENCARGOS ]</span>
+                                <span class="text-gray-500" id="ticket-id">#CY-0001</span>
+                            </div>
+
+                            <pre id="ticket-preview" class="text-gray-300 leading-relaxed whitespace-pre-wrap font-vt text-sm text-green-400">
+[ CYBER ART TICKET ]
+• Cliente: Anon
+• Modo: Rubber Hose
+• Cobertura: Headshot
+• Extras: Ninguno
+• Total Estimado: $25 USD
+• Estado: Esperando Confirmación
+                            </pre>
+                        </div>
+
+                        <div class="pt-4 border-t border-dashed border-gray-700 space-y-3">
+                            <div class="flex justify-between items-center text-base font-bold text-white">
+                                <span>TOTAL ESTIMADO:</span>
+                                <span id="total-price" class="text-2xl text-acid-yellow text-glow-yellow">$25 USD</span>
+                            </div>
+
+                            <button onclick="copyTicket()" class="w-full py-3 rounded bg-neon-magenta hover:bg-neon-magenta/80 text-white font-bold transition flex items-center justify-center gap-2 shadow-glow-magenta">
+                                <i class="fa-solid fa-copy"></i> COPIAR TICKET PARA DISCORD / EMAIL
+                            </button>
+                            <div id="copy-notification" class="hidden text-center text-neon-green text-xs">
+                                <i class="fa-solid fa-circle-check"></i> ¡Ticket copiado al portapapeles!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="cyber-glass border-t border-electric-cyan/20 py-8 relative z-10 text-xs font-mono text-gray-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="text-white font-bold">CYBER ART COMMISSIONS</span> &copy; 2026 // TERMINAL DE ENCARGOS
+                <p class="text-gray-500 text-[10px]">Proyecto Desarrollado con HTML5, Tailwind CSS, JS Vanilla & jQuery</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-deep-space border border-gray-700 hover:border-electric-cyan text-gray-300 flex items-center gap-2 transition">
+                    <i class="fa-brands fa-github text-white"></i> GitHub Repo
+                </a>
+                <a href="https://vercel.com" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-deep-space border border-gray-700 hover:border-electric-cyan text-gray-300 flex items-center gap-2 transition">
+                    <i class="fa-solid fa-triangle-exclamation text-white"></i> Vercel App
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
